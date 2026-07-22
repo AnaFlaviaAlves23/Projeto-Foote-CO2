@@ -17,7 +17,7 @@ Turma 2º EM 1 — PO7O
 
 Este código foi desenvolvido por **Ana Flávia Alves**, que não é aluna da E.E. Ilídio da Costa Pereira. A colaboração foi feita voluntariamente para apoiar a turma na construção do site do projeto de feira de ciências.
 
-## Ferramentas utilizadas
+## Recursos
 
 - HTML5
 - CSS3
