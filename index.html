@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto Foote: Calculadora de CO2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Avaliação Experimental do Impacto do CO2 na Temperatura Atmosférica Baseada no Modelo de Foote</h1>
+  <p>Turma 2º EM 1 – E.E. Ilídio da Costa Pereira. Descubra o seu impacto no planeta e conheça a ciência por trás do aquecimento global.</p>
+
+  <div class="calculadora">
+    <h2>Calculadora de CO2</h2>
+    <p>Informe a distância e escolha como você se desloca. A calculadora estima a quantidade de gás carbônico emitida no percurso.</p>
+
+    <label for="distancia">Distância percorrida (km)</label>
+    <input type="number" id="distancia" placeholder="Ex.: 15">
+
+    <br><br>
+
+    <label for="transporte">Meio de Transporte</label>
+    <select id="transporte">
+        <option value="0.192">Carro a gasolina — média</option>
+        <option value="0.103">Motocicleta</option>
+        <option value="0.089">Ônibus urbano</option>
+        <option value="0.041">Metrô ou trem</option>
+        <option value="0">Bicicleta ou caminhada</option>
+    </select>
+
+    <br><br>
+
+    <button id="botaoCalcular">Calcular</button>
+
+    <p id="resultado"></p>
+  </div>
+
+  <div class="curiosidade">
+    <h3>O Efeito Foote na prática</h3>
+    <p>Sabia que 1 kg de CO2 emitido pelo seu transporte equivale a preencher 278 garrafas PET de 2 litros com gás puro? Em nosso experimento, provamos que esse gás retém muito mais calor do sol do que o ar comum!</p>
+  </div>
+
+  <div class="pioneira">
+    <img src="eunice-foote.jpeg" alt="Ilustração de Eunice Newton Foote">
+    <div class="pioneira-texto">
+      <h3>A Descoberta de Eunice Foote (1856)</h3>
+      <p>Três anos antes de John Tyndall, a cientista norte-americana Eunice Foote provou que o gás carbônico atinge temperaturas superiores às do ar comum. Ela previu historicamente que uma atmosfera rica nesse gás aqueceria a Terra.</p>
+    </div>
+  </div>
+
+  <div class="efeito-estufa">
+    <h2>Como funciona o efeito estufa?</h2>
+    <p>A luz do sol atravessa a atmosfera e aquece a superfície da Terra. Parte desse calor é devolvida ao espaço em forma de radiação infravermelha. Gases como o CO2 absorvem essa radiação e a redirecionam de volta pra superfície, retendo calor — é esse fenômeno natural que mantém o planeta aquecido o suficiente pra vida existir.</p>
+    <p>O problema não é o efeito estufa em si, mas sua <strong>intensificação</strong>: desde a Revolução Industrial, a concentração de CO2 na atmosfera subiu de cerca de 280 partes por milhão (ppm) para mais de 420 ppm — um aumento de mais de 50%, causado principalmente pela queima de combustíveis fósseis, desmatamento e atividades industriais.</p>
+  </div>
+
+  <div class="ciclo">
+    <h2>O caminho do CO2 no planeta</h2>
+
+    <div class="ciclo-cards">
+      <div class="ciclo-card verde">
+        <h3>Como a natureza limpa o CO2?</h3>
+        <p>As florestas, por meio da fotossíntese, e os oceanos absorvem parte desse gás. Esses grandes reservatórios naturais ajudam a equilibrar o ciclo do carbono, mas possuem limites.</p>
+      </div>
+
+      <div class="ciclo-card laranja">
+        <h3>Quanto tempo o CO2 fica no ar?</h3>
+        <p>Cerca de 20% a 35% das emissões permanecem na atmosfera por milhares de anos, aquecendo o planeta por gerações.</p>
+      </div>
+
+      <div class="ciclo-card azul">
+        <h3>Quais são as principais fontes de CO2?</h3>
+        <p>Queima de combustíveis fósseis (carvão, petróleo, gás natural) em veículos e indústrias, desmatamento e queimadas, produção de cimento e processos agropecuários — o gado, por exemplo, também contribui com metano, outro gás de efeito estufa.</p>
+      </div>
+
+      <div class="ciclo-card amarelo">
+        <h3>Quais as consequências do aumento do CO2?</h3>
+        <p>Elevação da temperatura média global, derretimento de geleiras e calotas polares, aumento do nível do mar, eventos climáticos extremos mais frequentes (secas, enchentes, furacões) e alterações nos ecossistemas e na agricultura.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipe">
+    <h2>Integrantes do Projeto</h2>
+    <ul>
+      <li>Ana Clara Galvani de Oliveira</li>
+      <li>Ana Paula Silva Gonçalves</li>
+      <li>Diogo Assis Resende</li>
+      <li>Gabriela Tavares de Sousa</li>
+      <li>Lara Amaral dos Santos</li>
+      <li>Luis Felipe Vasconcelos Nascimento</li>
+      <li>Maria Eduarda Oliveira de Araújo</li>
+      <li>Marcelly Luzia Vieira Gomes de Freitas</li>
+      <li>Victor Hugo Gomes de Camargos</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>PO7O – 10ª FCT EEICP</p>
+    <p>Divinópolis, MG – 2026</p>
+  </footer>
+
+  <script>
+    const inputDistancia = document.getElementById("distancia");
+    const inputTransporte = document.getElementById("transporte");
+    const resultado = document.getElementById("resultado");
+    const botao = document.getElementById("botaoCalcular");
+
+    function calcular() {
+    const distancia = parseFloat(inputDistancia.value);
+    const fator = parseFloat(inputTransporte.value);
+
+    if (isNaN(distancia) || distancia <= 0) {
+        resultado.textContent = "Digite uma distância válida.";
+        return;
+    }
+
+    const totalCO2 = distancia * fator;
+    resultado.textContent = "Emissão estimada: " + totalCO2.toFixed(2) + " kg de CO2";
+    }
+
+    botao.addEventListener("click", calcular);
+  </script>
+
+</body>
+</html>
